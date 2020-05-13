@@ -23,7 +23,7 @@ Click on "Add Stock" button below steps will execute,
 4) If there is no "Buying Price" provided then the "Buying Price" & "Profit/Loss" would be 0.
 5) Store all these details in Sqlite database
 
-Exceptio :
+Exception :
     If Stock code is not correct then program will not add or update anything. 
 
 There are 2 actions.
