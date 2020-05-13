@@ -7,6 +7,7 @@ Setting up development environment, using
 3. git
 
 Project Explanation:
+
 Start the project (python stockwatchlist.py) , open the browser to open the Index page of local environment (http://localhost:5000/).
 
 This page contains 2 input fields.
