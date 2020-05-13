@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Stock Watch List</h1>
+    <form action="/" method="POST" align="center">
+        <label for="stock">Stock Code:</label>
+        <input type="text" name="stock" id="stock">
+        <label for="buyingprice">Buying Price:</label>
+        <input type="number" name="buyingprice" step="0.01" min="0" max="10000">
+        <input type="submit" value="Add Stock">
+    </form>
+    {% if stocks|length < 1 %}
+    <h4 style="text-align: center">There are no stock to watch. Add one below!</h4>
+    {% else%}
+    <table align="center">
+        <tr>
+            <th>Stock Code</th>
+            <th>Stock Name</th>
+            <th>52 Week High</th>
+            <th>52 Week Low</th>
+            <th>Buying Price</th>
+            <th>Market Price</th>
+            <th>Profit / Loss</th>
+            <th>Actions</th>
+        </tr>
+
+        {% for stock in stocks %}
+            <tr>
+                <td>{{ stock.stockCode }}</td>
+                <td>{{ stock.stockName }}</td>
+                <td>{{ stock.high52week }}</td>
+                <td>{{ stock.low52week }}</td>
+                <td>{{ stock.buyingprice }}</td>
+                <td>{{ stock.currentPrice }}</td>
+                <td>{{ stock.profitloss }}</td>
+                <td>
+                    <a href="/delete/{{ stock.id }}">Delete</a>
+                    <br>
+                    <a href="/update/{{ stock.id }}">Update</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+
+{% endblock %}
